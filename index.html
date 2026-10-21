@@ -4,158 +4,247 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>أريان بوتيك | ARIAN BOUTIQUE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --primary-burgundy: #3b111a;
+            --dark-burgundy: #280b12;
+            --accent-gold: #c5a059;
+            --bg-cream: #f9f6f0;
+            --card-bg: #f4efe6;
+            --text-dark: #222;
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Tajawal', sans-serif;
         }
+
         body {
-            background-color: #f8f9fa;
-            color: #333;
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            padding-bottom: 70px;
         }
+
+        /* Header */
         header {
-            background-color: #1a1a1a;
+            background-color: var(--primary-burgundy);
             color: #fff;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        header h1 {
-            font-size: 26px;
-            letter-spacing: 1px;
+
+        .header-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
         }
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=1000&auto=format&fit=crop') center/cover;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        .hero h2 {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-        .hero p {
-            font-size: 16px;
-            opacity: 0.9;
-        }
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 0 15px;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 22px;
-            color: #1a1a1a;
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-        }
-        .product-card {
-            background: #fff;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
-        .product-card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-        }
-        .product-info {
-            padding: 15px;
-            text-align: center;
-        }
-        .product-info h3 {
+
+        .header-icons i {
             font-size: 18px;
-            margin-bottom: 8px;
+            cursor: pointer;
         }
-        .price {
-            color: #d4af37;
+
+        .cart-icon {
+            position: relative;
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent-gold);
+            color: #fff;
+            font-size: 10px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            font-size: 16px;
-            margin-bottom: 12px;
         }
-        .btn-buy {
-            display: inline-block;
-            background-color: #25D366;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 20px;
+
+        .logo-container {
+            text-align: center;
+        }
+
+        .logo-title {
+            font-family: 'Amiri', serif;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .logo-subtitle {
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: #d1bd9b;
+        }
+
+        .menu-icon {
+            font-size: 20px;
+        }
+
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(40, 11, 18, 0.55), rgba(40, 11, 18, 0.55)), 
+                        url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1000&auto=format&fit=crop') center/cover;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero-crown {
+            font-size: 28px;
+            color: #fff;
+            margin-bottom: 5px;
+        }
+
+        .hero h1 {
+            font-family: 'Amiri', serif;
+            font-size: 32px;
+            margin-bottom: 2px;
+        }
+
+        .hero-sub {
+            font-size: 12px;
+            letter-spacing: 4px;
+            margin-bottom: 25px;
+            color: #e5d5be;
+        }
+
+        .hero-tagline {
+            font-size: 22px;
+            font-family: 'Amiri', serif;
+            margin-bottom: 5px;
+        }
+
+        .hero-desc {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+
+        .btn-shop {
+            background-color: #ffffff;
+            color: var(--primary-burgundy);
+            padding: 10px 30px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: bold;
             font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
-        footer {
+
+        /* Categories */
+        .categories-section {
+            padding: 25px 15px;
+            display: flex;
+            justify-content: space-around;
             text-align: center;
-            padding: 20px;
-            background-color: #1a1a1a;
-            color: #ccc;
-            margin-top: 40px;
-            font-size: 14px;
+            gap: 10px;
+            overflow-x: auto;
         }
-    </style>
-</head>
-<body>
 
-    <header>
-        <h1>أريان بوتيك | ARIAN BOUTIQUE</h1>
-    </header>
+        .cat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 70px;
+        }
 
-    <section class="hero">
-        <h2>أحدث صيحات الموضة والأزياء</h2>
-        <p>تشكيلة مميزة وعصرية لتألقك اليومي</p>
-    </section>
+        .cat-icon-box {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background-color: var(--primary-burgundy);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
 
-    <div class="container">
-        <h2 class="section-title">أحدث المنتجات</h2>
-        
-        <div class="products-grid">
-            <!-- منتج 1 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=600&auto=format&fit=crop" alt="منتج">
-                <div class="product-info">
-                    <h3>فستان أنيق</h3>
-                    <div class="price">150 شيكل</div>
-                    <a href="https://wa.me/970000000000" class="btn-buy">طلب عبر الواتساب</a>
-                </div>
-            </div>
+        .cat-icon-box i {
+            font-size: 24px;
+        }
 
-            <!-- منتج 2 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=600&auto=format&fit=crop" alt="منتج">
-                <div class="product-info">
-                    <h3>طقم عصري</h3>
-                    <div class="price">200 شيكل</div>
-                    <a href="https://wa.me/970000000000" class="btn-buy">طلب عبر الواتساب</a>
-                </div>
-            </div>
+        .cat-title {
+            font-size: 13px;
+            font-weight: bold;
+            color: var(--primary-burgundy);
+        }
 
-            <!-- منتج 3 -->
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?q=80&w=600&auto=format&fit=crop" alt="منتج">
-                <div class="product-info">
-                    <h3>عباية مميزة</h3>
-                    <div class="price">180 شيكل</div>
-                    <a href="https://wa.me/970000000000" class="btn-buy">طلب عبر الواتساب</a>
-                </div>
-            </div>
-        </div>
-    </div>
+        .cat-sub {
+            font-size: 10px;
+            color: #777;
+        }
 
-    <footer>
-        <p>جميع الحقوق محفوظة &copy; 2026 - أريان بوتيك</p>
-    </footer>
+        /* Products Section */
+        .products-section {
+            padding: 10px 15px 30px;
+        }
 
-</body>
-</html>
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #e0d8cc;
+            padding-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: 18px;
+            color: var(--primary-burgundy);
+            font-family: 'Amiri', serif;
+        }
+
+        .see-all {
+            font-size: 13px;
+            color: #666;
+            text-decoration: none;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .product-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--primary-burgundy
